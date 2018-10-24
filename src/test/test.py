@@ -5,13 +5,14 @@ Created on 2018年3月31日
 @author: luke
 '''
 # -*- coding: UTF-8 -*-
-import urllib.request
+import requests
+
 
 #url
-url='http://www.zhihu.com'
+urls=['http://www.baidu.com/','https://www.zhihu.com']
 
 #get请求
-html=urllib.request.urlopen(url).read()
-
-print(html)
+for url in urls: 
+    html=requests.get(url).content.decode('utf-8')
+    print(html)
 
