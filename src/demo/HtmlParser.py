@@ -41,4 +41,10 @@ class HtmlParser(object):
     def _get_new_data(self,page_url,soup):
         data ={}
         data['url'] =page_url
-        title = 
+        title = soup.find('dd',class_= 'lemmaWgt-lemmaTitle-title').find('h1')
+        data['title'] = title.get_text()
+        summary = soup.find('div',class_='lemma-summary')
+        data['summary'] = summary.get_text()
+        return data
+    
+    
